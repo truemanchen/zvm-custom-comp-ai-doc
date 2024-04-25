@@ -21,7 +21,7 @@ export function AiPptDoc({ globalData }: AiPptDocProps) {
       style={iframeInlineStyle}
       srcDoc={genAiPptDocSrc({
         appkey: globalData.appkey,
-        channel: globalData.chanel,
+        channel: globalData.channel,
         code: globalData.code,
       })}
     />

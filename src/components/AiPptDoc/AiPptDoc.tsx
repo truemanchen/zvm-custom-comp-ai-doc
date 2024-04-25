@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-empty-pattern */
 
-import { aiPptDocSrc } from './aiPptDocSrc';
+import { genAiPptDocSrc } from './aiPptDocSrc';
 
 interface AiPptDocProps {
   globalData: Record<string, any>;
@@ -15,6 +15,15 @@ const iframeInlineStyle: React.CSSProperties = {
   width: '100%',
 };
 
-export function AiPptDoc({}: AiPptDocProps) {
-  return <iframe style={iframeInlineStyle} srcDoc={aiPptDocSrc}></iframe>;
+export function AiPptDoc({ globalData }: AiPptDocProps) {
+  return (
+    <iframe
+      style={iframeInlineStyle}
+      srcDoc={genAiPptDocSrc({
+        appkey: globalData.appkey,
+        channel: globalData.chanel,
+        code: globalData.code,
+      })}
+    />
+  );
 }
